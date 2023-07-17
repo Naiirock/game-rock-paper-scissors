@@ -129,16 +129,22 @@ class Game:
             new_rock = Rock(rock.rect.x, rock.rect.y)
             self.all_sprites.add(new_rock)
             self.rocks.add(new_rock)
+            rock_sound = pygame.mixer.Sound('sound_rock.mp3')
+            rock_sound.play()
 
         for scissors in pygame.sprite.groupcollide(self.scissors, self.papers, False, True):
             new_scissors = Scissors(scissors.rect.x, scissors.rect.y)
             self.all_sprites.add(new_scissors)
             self.scissors.add(new_scissors)
+            scissors_sound = pygame.mixer.Sound('sound_scissors.mp3')
+            scissors_sound.play()
 
         for paper in pygame.sprite.groupcollide(self.papers, self.rocks, False, True):
             new_paper = Paper(paper.rect.x, paper.rect.y)
             self.all_sprites.add(new_paper)
             self.papers.add(new_paper)
+            paper_sound = pygame.mixer.Sound('sound_paper.mp3')
+            paper_sound.play()
 
 
 class Menu:
